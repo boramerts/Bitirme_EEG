@@ -3,7 +3,7 @@ load('EEG_Data.mat');
 
 win_size = 500;
 t = 0:1/fs:(win_size-1)/fs;
-a = 2;
+a = 1;
 
 k = 1;
 for i = 1:20
@@ -12,6 +12,7 @@ for i = 1:20
         k = k+1;
     end
 end
+
 pairs = nchoosek(1:6,2);
 
 % create complex Morlet wavelet
@@ -44,10 +45,4 @@ for plotId = 1:height(pairs)
     subplot(3,5,plotId);
     polarAngleDiffH = polarplot(repmat(phase_data(pairs(plotId,1),:)-phase_data(pairs(plotId,2),:)*1,2)',repmat([0 1],1,length(phase_data))','k');
     title("Subject "+pairs(plotId,1) + "vs. Subject " + pairs(plotId,2));
-    
-%     for ti = 1:10:length(in_data)
-%         subplot(4,4,plotId)
-%         cla
-%         polarplot(repmat(phase_data(2,1:ti)-phase_data(1,1:ti),1,2)',repmat([0 1],1,ti)','k');
-%     end
 end
