@@ -6,11 +6,8 @@ t = 0:1/fs:(win_size-1)/fs;
 a = 1;
 
 k = 1;
-for i = 1:20
-    if length(new_group_b{i,1,1}) == 91000
-        in_data(k,:) = bandpass(new_group_b{i,1,1}(1+a*win_size:500+a*win_size),[8 13],fs);
-        k = k+1;
-    end
+for i = 1:16
+        in_data(i,:) = bandpass(new_group_b{i,1,1}(1+a*win_size:500+a*win_size),[8 13],fs);
 end
 
 pairs = nchoosek(1:6,2);

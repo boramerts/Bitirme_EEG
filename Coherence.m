@@ -15,7 +15,7 @@ load('EEG_Data.mat');
 cxy_sum_b = zeros(513,20);
 fc_sum_b = zeros(513,20);
 
-for i = 1:20
+for i = 1:16
     data1 = bandpass(new_group_b{i,1,1}(1:85000),[8 13],fs);
     data2 = bandpass(new_group_b{i,1,2}(1:85000),[8 13],fs);
     
@@ -30,7 +30,7 @@ fc_mean_b = mean(fc_sum_b,2);
 cxy_sum_g = zeros(513,20);
 fc_sum_g = zeros(513,20);
 
-for i = 1:20
+for i = 1:25
     data1 = bandpass(group_g{i,1,1}(1:31000),[8 13],fs);
     data2 = bandpass(group_g{i,1,2}(1:31000),[8 13],fs);
     
